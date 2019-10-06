@@ -54,6 +54,7 @@ class Masonry extends React.Component {
           id="masonry-layout"
           infiniteScroll={this.loadPhotos}
           infiniteScrollLoading={this.state.isLoading}
+          sizes={[{ columns: 4, gutter: 10 }]}
         >
           {this.state.photos.map(photoSrc => {
             return <img src={photoSrc} alt="" key={photoSrc} />;
