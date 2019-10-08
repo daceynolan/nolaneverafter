@@ -6,12 +6,8 @@ export const generatePhotoUrl = (index, size = "thumbnails") => {
 export const loadPhoto = src => {
   return new Promise(resolve => {
     const img = new Image();
-    img.onload = () => resolve({ img, src });
-    img.onerror = () => resolve({ img: {}, src });
+    img.onload = () => resolve({ width: img.width, src, height: img.height });
+    img.onerror = () => resolve({});
     img.src = src;
-  }).then(photo => ({
-    src: photo.src,
-    width: photo.img.width,
-    height: photo.img.height
-  }));
+  });
 };
