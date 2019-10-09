@@ -1,5 +1,5 @@
 import React from "react";
-import MasonryLayout from "react-masonry-layout";
+import Gallery from "react-photo-gallery";
 
 import { generatePhotoUrl, loadPhoto } from "../utils/photos";
 
@@ -44,18 +44,10 @@ class App extends React.Component {
   };
 
   render() {
+    console.log(this.state.photos);
     return (
       <div className="App">
-        <MasonryLayout
-          id="masonry-layout"
-          infiniteScroll={this.loadPhotos}
-          infiniteScrollLoading={this.state.isLoading}
-          sizes={[{ columns: 4, gutter: 10 }]}
-        >
-          {this.state.photos.map(photo => {
-            return <img src={photo.src} alt="" key={photo.src} />;
-          })}
-        </MasonryLayout>
+        <Gallery photos={this.state.photos} />;
       </div>
     );
   }
