@@ -1,4 +1,5 @@
 import React from "react";
+import { InfiniteScroll } from "react-simple-infinite-scroll";
 import Gallery from "react-photo-gallery";
 
 import { generatePhotoUrl, loadPhoto } from "../utils/photos";
@@ -8,7 +9,7 @@ const PHOTOS_PER_PAGE = 20;
 
 class App extends React.Component {
   state = {
-    isLoading: true,
+    isLoading: false,
     photos: []
   };
 
@@ -44,10 +45,18 @@ class App extends React.Component {
   };
 
   render() {
-    console.log(this.state.photos);
+    const { photos, isLoading } = this.state;
     return (
       <div className="App">
-        <Gallery photos={this.state.photos} />;
+        <InfiniteScroll
+          throttle={100}
+          threshold={500}
+          isLoading={isLoading}
+          hasMore={photos.length < TOTAL_PHOTO_COUNT}
+          onLoadMore={this.loadPhotos}
+        >
+          <Gallery photos={this.state.photos} />
+        </InfiniteScroll>
       </div>
     );
   }
