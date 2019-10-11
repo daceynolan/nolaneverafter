@@ -11,8 +11,8 @@ const PHOTOS_PER_PAGE = 20;
 const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [photos, setPhotos] = useState([]);
-  const [viewerIsOpen, setViewerIsOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState(0);
+  const [lightboxIsOpen, setLightboxIsOpen] = useState(false);
+  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
   // Fetch initial photos
   useEffect(() => {
@@ -43,14 +43,14 @@ const App = () => {
     });
   };
 
-  const openLightbox = useCallback((event, { photo, index }) => {
-    setCurrentImage(index);
-    setViewerIsOpen(true);
+  const openLightbox = useCallback((event, { index }) => {
+    setCurrentPhotoIndex(index);
+    setLightboxIsOpen(true);
   }, []);
 
   const closeLightBox = () => {
-    setCurrentImage(0);
-    setViewerIsOpen(false);
+    setCurrentPhotoIndex(0);
+    setLightboxIsOpen(false);
   };
 
   return (
@@ -65,14 +65,14 @@ const App = () => {
         <Gallery photos={photos} onClick={openLightbox} />
       </InfiniteScroll>
       <ModalGateway>
-        {viewerIsOpen ? (
+        {lightboxIsOpen ? (
           <Modal onClose={closeLightBox}>
             <Carousel
-              currentIndex={currentImage}
-              views={photos.map((x, i) => ({
-                ...x,
+              currentIndex={currentPhotoIndex}
+              views={photos.map((photo, i) => ({
+                ...photo,
                 source: {
-                  thumbnail: x.src,
+                  thumbnail: photo.src,
                   regular: generatePhotoUrl(i, "large")
                 }
               }))}
