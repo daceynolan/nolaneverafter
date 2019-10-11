@@ -76,7 +76,7 @@ const App = () => {
                   regular: generatePhotoUrl(i, "large")
                 }
               }))}
-            ></Carousel>
+            />
           </Modal>
         ) : null}
       </ModalGateway>
