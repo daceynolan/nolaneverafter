@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { InfiniteScroll } from "react-simple-infinite-scroll";
+import Carousel, { Modal, ModalGateway } from "react-images";
 import Gallery from "react-photo-gallery";
 
 import { generatePhotoUrl, loadPhoto } from "../utils/photos";
@@ -10,6 +11,8 @@ const PHOTOS_PER_PAGE = 20;
 const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [photos, setPhotos] = useState([]);
+  const [viewerIsOpen, setViewerIsOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState(0);
 
   // Fetch initial photos
   useEffect(() => {
@@ -28,17 +31,26 @@ const App = () => {
       .map((_, i) => {
         const newPhotoIndex = currentPhotoCount + 1 + i;
         if (newPhotoIndex < TOTAL_PHOTO_COUNT) {
-          return generatePhotoUrl(currentPhotoCount + 1 + i);
+          return generatePhotoUrl(currentPhotoCount + i);
         }
         return null;
       })
       .filter(Boolean);
-
     // Wait for all promises to resolve
     Promise.all(nextPhotoUrls.map(loadPhoto)).then(newPhotos => {
       setIsLoading(false);
       setPhotos(photos.concat(newPhotos));
     });
+  };
+
+  const openLightbox = useCallback((event, { photo, index }) => {
+    setCurrentImage(index);
+    setViewerIsOpen(true);
+  }, []);
+
+  const closeLightBox = () => {
+    setCurrentImage(0);
+    setViewerIsOpen(false);
   };
 
   return (
@@ -50,8 +62,24 @@ const App = () => {
         hasMore={photos.length < TOTAL_PHOTO_COUNT}
         onLoadMore={loadPhotos}
       >
-        <Gallery photos={photos} />
+        <Gallery photos={photos} onClick={openLightbox} />
       </InfiniteScroll>
+      <ModalGateway>
+        {viewerIsOpen ? (
+          <Modal onClose={closeLightBox}>
+            <Carousel
+              currentIndex={currentImage}
+              views={photos.map((x, i) => ({
+                ...x,
+                source: {
+                  thumbnail: x.src,
+                  regular: generatePhotoUrl(i, "large")
+                }
+              }))}
+            ></Carousel>
+          </Modal>
+        ) : null}
+      </ModalGateway>
     </div>
   );
 };
