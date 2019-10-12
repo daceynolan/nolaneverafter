@@ -1,6 +1,5 @@
-export const generatePhotoUrl = (index, size = "thumbnails") => {
-  return `https://s3-us-west-2.amazonaws.com/www.nolaneverafter.com/photos/${size}/nolaneverafter${index +
-    1}.jpg`;
+export const generatePhotoUrl = (photoId, size = "thumbnails") => {
+  return `https://s3-us-west-2.amazonaws.com/www.nolaneverafter.com/photos/${size}/nolaneverafter${photoId}.jpg`;
 };
 
 export const loadPhoto = src => {
