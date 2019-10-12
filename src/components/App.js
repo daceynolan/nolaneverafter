@@ -66,8 +66,9 @@ const App = () => {
       </InfiniteScroll>
       <ModalGateway>
         {lightboxIsOpen ? (
-          <Modal onClose={closeLightBox}>
+          <Modal onClose={closeLightBox} closeOnEsc={false}>
             <Carousel
+              components={{ Footer: null }}
               currentIndex={currentPhotoIndex}
               views={photos.map((photo, i) => ({
                 ...photo,
