@@ -7,7 +7,7 @@ import Loader from "./Loader";
 import { generatePhotoUrl, loadPhoto } from "../utils/photos";
 
 const TOTAL_PHOTO_COUNT = 554;
-const PHOTOS_PER_PAGE = 100;
+const PHOTOS_PER_PAGE = 20;
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(false);
