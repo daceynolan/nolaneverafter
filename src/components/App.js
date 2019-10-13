@@ -4,6 +4,7 @@ import Carousel, { Modal, ModalGateway } from "react-images";
 import Gallery from "react-photo-gallery";
 
 import Header from "./Header";
+import Footer from "./Footer";
 import Loader from "./Loader";
 import ModalActions from "./ModalActions";
 import { generatePhotoUrl, loadPhoto } from "../utils/photos";
@@ -73,6 +74,7 @@ const App = () => {
         <Gallery photos={photos} onClick={openLightbox} />
       </InfiniteScroll>
       {isLoading && <Loader />}
+      {photos.length === TOTAL_PHOTO_COUNT && <Footer />}
       <ModalGateway>
         {lightboxIsOpen && (
           <Modal onClose={closeLightBox} closeOnEsc={false}>
