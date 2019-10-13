@@ -3,7 +3,7 @@ import React from "react";
 // https://loading.io/css/
 const Loader = () => {
   return (
-    <div class="lds-heart">
+    <div className="lds-heart">
       <div></div>
     </div>
   );

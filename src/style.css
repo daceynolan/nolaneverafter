@@ -24,6 +24,29 @@ body {
   margin-left: auto;
 }
 
+.modal-actions {
+  background: linear-gradient(rgba(0, 0, 0, 0.33), rgba(0, 0, 0, 0));
+  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+  box-sizing: border-box;
+  align-items: center;
+  padding: 10px 10px 20px;
+  justify-content: flex-end;
+}
+
+.modal-actions__button {
+  border: none;
+  background: none;
+  color: rgba(255, 255, 255, 0.75);
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+}
+
 .lds-heart {
   display: block;
   position: relative;
