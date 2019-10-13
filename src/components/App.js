@@ -5,6 +5,7 @@ import Gallery from "react-photo-gallery";
 
 import Header from "./Header";
 import Loader from "./Loader";
+import ModalActions from "./ModalActions";
 import { generatePhotoUrl, loadPhoto } from "../utils/photos";
 
 const TOTAL_PHOTO_COUNT = 554;
@@ -77,13 +78,14 @@ const App = () => {
           <Modal onClose={closeLightBox} closeOnEsc={false}>
             <Carousel
               hideControlsWhenIdle={false}
-              components={{ Footer: null }}
+              components={{ Footer: null, Header: ModalActions }}
               currentIndex={currentPhotoIndex}
               views={photos.map((photo, i) => ({
                 ...photo,
                 source: {
                   thumbnail: photo.src,
-                  regular: generatePhotoUrl(i + 1, "large")
+                  regular: generatePhotoUrl(i + 1, "large"),
+                  download: generatePhotoUrl(i + 1, "original")
                 }
               }))}
             />
