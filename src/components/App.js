@@ -59,7 +59,7 @@ const App = () => {
   return (
     <div className="App">
       <Header
-        TOTAL_PHOTO_COUNT={TOTAL_PHOTO_COUNT}
+        totalPhotoCount={TOTAL_PHOTO_COUNT}
         currentPhotoCount={photos.length}
       />
       <InfiniteScroll
