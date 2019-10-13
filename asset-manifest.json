@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/nolaneverafter/static/css/main.76704897.chunk.css",
+    "main.js": "/nolaneverafter/static/js/main.73f87f08.chunk.js",
+    "main.js.map": "/nolaneverafter/static/js/main.73f87f08.chunk.js.map",
+    "runtime-main.js": "/nolaneverafter/static/js/runtime-main.3baa9db8.js",
+    "runtime-main.js.map": "/nolaneverafter/static/js/runtime-main.3baa9db8.js.map",
+    "static/css/2.7fad5d03.chunk.css": "/nolaneverafter/static/css/2.7fad5d03.chunk.css",
+    "static/js/2.d73a23c7.chunk.js": "/nolaneverafter/static/js/2.d73a23c7.chunk.js",
+    "static/js/2.d73a23c7.chunk.js.map": "/nolaneverafter/static/js/2.d73a23c7.chunk.js.map",
+    "index.html": "/nolaneverafter/index.html",
+    "precache-manifest.889d01a8d2f7053f7f0da9550d3ab0a1.js": "/nolaneverafter/precache-manifest.889d01a8d2f7053f7f0da9550d3ab0a1.js",
+    "service-worker.js": "/nolaneverafter/service-worker.js",
+    "static/css/2.7fad5d03.chunk.css.map": "/nolaneverafter/static/css/2.7fad5d03.chunk.css.map",
+    "static/css/main.76704897.chunk.css.map": "/nolaneverafter/static/css/main.76704897.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3baa9db8.js",
+    "static/css/2.7fad5d03.chunk.css",
+    "static/js/2.d73a23c7.chunk.js",
+    "static/css/main.76704897.chunk.css",
+    "static/js/main.73f87f08.chunk.js"
+  ]
+}
