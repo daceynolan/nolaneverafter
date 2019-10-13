@@ -47,10 +47,6 @@ body {
   cursor: pointer;
 }
 
-.icon {
-  fill: currentColor;
-}
-
 .lds-heart {
   display: block;
   position: relative;
