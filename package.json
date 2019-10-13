@@ -8,7 +8,8 @@
     "react-images": "^1.0.0",
     "react-photo-gallery": "^8.0.0",
     "react-scripts": "3.2.0",
-    "react-simple-infinite-scroll": "^0.0.1"
+    "react-simple-infinite-scroll": "^0.0.1",
+    "reset-css": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
