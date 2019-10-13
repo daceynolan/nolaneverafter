@@ -3,6 +3,7 @@ import { InfiniteScroll } from "react-simple-infinite-scroll";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import Gallery from "react-photo-gallery";
 
+import Header from "./Header";
 import Loader from "./Loader";
 import { generatePhotoUrl, loadPhoto } from "../utils/photos";
 
@@ -57,6 +58,10 @@ const App = () => {
 
   return (
     <div className="App">
+      <Header
+        TOTAL_PHOTO_COUNT={TOTAL_PHOTO_COUNT}
+        currentPhotoCount={photos.length}
+      />
       <InfiniteScroll
         throttle={100}
         threshold={500}
@@ -71,6 +76,7 @@ const App = () => {
         {lightboxIsOpen && (
           <Modal onClose={closeLightBox} closeOnEsc={false}>
             <Carousel
+              hideControlsWhenIdle={false}
               components={{ Footer: null }}
               currentIndex={currentPhotoIndex}
               views={photos.map((photo, i) => ({

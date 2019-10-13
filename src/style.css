@@ -1,6 +1,27 @@
 body {
   padding: 0 !important;
   margin: 2px;
+  font-family: "Nunito", sans-serif;
+}
+
+.header {
+  background: white;
+  display: flex;
+  align-items: center;
+  padding: 16px 12px;
+  position: sticky;
+  top: 0;
+  color: #777;
+}
+
+.header__title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.header__photo-count {
+  font-size: 14px;
+  margin-left: auto;
 }
 
 .lds-heart {
@@ -12,15 +33,17 @@ body {
   transform-origin: 32px 32px;
   margin: 8px auto;
 }
+
 .lds-heart div {
   top: 23px;
   left: 19px;
   position: absolute;
   width: 26px;
   height: 26px;
-  background: #f0394d;
+  background: #f26b6b;
   animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
 }
+
 .lds-heart div:after,
 .lds-heart div:before {
   content: " ";
@@ -28,16 +51,19 @@ body {
   display: block;
   width: 26px;
   height: 26px;
-  background: #f0394d;
+  background: #f26b6b;
 }
+
 .lds-heart div:before {
   left: -17px;
   border-radius: 50% 0 0 50%;
 }
+
 .lds-heart div:after {
   top: -17px;
   border-radius: 50% 50% 0 0;
 }
+
 @keyframes lds-heart {
   0% {
     transform: scale(0.95);
