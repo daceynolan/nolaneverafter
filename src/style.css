@@ -47,6 +47,13 @@ body {
   cursor: pointer;
 }
 
+.footer {
+  text-align: center;
+  color: #777;
+  padding: 12px;
+  font-size: 14px;
+}
+
 .lds-heart {
   display: block;
   position: relative;
