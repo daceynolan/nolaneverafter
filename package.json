@@ -2,7 +2,7 @@
   "name": "nolaneverafter",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://daceynolan.github.io/nolaneverafter/",
+  "homepage": "https://nolaneverafter.com/",
   "dependencies": {
     "downloadjs": "^1.4.7",
     "gh-pages": "^2.1.1",
